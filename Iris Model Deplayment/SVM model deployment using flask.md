@@ -1,6 +1,9 @@
 # ML Model using SVM and Deploy using Flask
-## Flask
-[Flask](https://flask.palletsprojects.com/en/2.0.x/) is a python module web framework that helps us develop web applications easily. It is easy to set up and simple to use.
+## Flask    
+[Flask](https://flask.palletsprojects.com/en/2.0.x/) is a python module web framework that helps us develop web applications easily. It is easy to set up and simple to use. It is build around Werkzeug which is WSGI (Web server gateway interface) web applications interface and Jinja which is a templating engine for python programming language.
+
+### Installation of Flask
+For the user who have [Anaconda](https://docs.continuum.io/anaconda/install/) installed in there system there is no need to install separately. Otherwise to install flask type the following command `– pip install flask` in the terminal.
 
 > Since we will be using SVM algorithm, to know more about it click [here](https://github.com/Learn-Write-Repeat/Intern-Work/tree/45ca8245e47186b679bcbb9b4006437d0b29828a/int-ml-4/Support%20Vector%20Machine).  
 
@@ -120,11 +123,15 @@ print(metrics.confusion_matrix(y_true=y_test, y_pred=y_pred))
 
 The above figure shows the accuracy and confusion matrix for the non-linear model.
 
+##### Since the model performed better using kernel as rbf with an accuracy of 95% as compared to 93% for linear kernel. So we will go ahead with the rbf kernel i.e. Non-Linear model.
+
 ```sh
 # Make pickle file for our model
 pickle.dump(non_linear_model, open("model.pkl", "wb"))
 ```
-The pickle file is being created which will be used by the deployment file during routing for prediction.
+The pickle file is being created which will be used by the deployment file (app.py) during routing for prediction.
+
+##### The above coding is done using the [Jupyter Notebook](https://jupyter.org/) however for deployment we will be shifting to [PyCharm](https://www.jetbrains.com/pycharm/) since we need to create a web application and a web server needs to be run for capturing the request from the user for prediction.  
 
 ### Deployment
 ```sh
@@ -135,14 +142,15 @@ import pickle
 
 # Create flask app
 flask_app = Flask(__name__)
+# Load the pickle model created from Jupyter Notebook
 model = pickle.load(open("model.pkl", "rb"))
 
 # Routing
-@flask_app.route("/")
+@flask_app.route("/") #it will lend to the home page
 def Home():
     return render_template("index.html")
 
-@flask_app.route("/predict", methods = ["POST"])
+@flask_app.route("/predict", methods = ["POST"]) #it will get the values entered by the user as POST method for prediction
 def predict():
     float_features = [float(x) for x in request.form.values()]
     features = [np.array(float_features)]
