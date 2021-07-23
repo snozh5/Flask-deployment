@@ -1,11 +1,11 @@
 # ML Model using SVM and Deploy using Flask
 ## Flask    
-[Flask](https://flask.palletsprojects.com/en/2.0.x/) is a python module web framework that helps us develop web applications easily. It is easy to set up and simple to use. It is build around Werkzeug which is WSGI (Web server gateway interface) web applications interface and Jinja which is a templating engine for python programming language.
+[Flask](https://flask.palletsprojects.com/en/2.0.x/) is a python module web framework that helps us develop web applications easily. It's easy to line up and straightforward to use. It's build around Werkzeug which is WSGI (Web server gateway interface) web applications interface and Jinja which is a templating engine for python programming language.
 
 ### Installation of Flask
-For the user who have [Anaconda](https://docs.continuum.io/anaconda/install/) installed in there system there is no need to install separately. Otherwise to install flask type the following command `– pip install flask` in the terminal.
+For the user who have [Anaconda](https://docs.continuum.io/anaconda/install/) installed in there system there's no need to have install separately. Otherwise to install flask type the subsequent command `– pip install flask` within the terminal.
 
-> Since we will be using SVM algorithm, to know more about it click [here](https://github.com/Learn-Write-Repeat/Intern-Work/tree/45ca8245e47186b679bcbb9b4006437d0b29828a/int-ml-4/Support%20Vector%20Machine).  
+> Since we'll be using SVM algorithm, to grasp more about it click [here](https://github.com/Learn-Write-Repeat/Intern-Work/tree/45ca8245e47186b679bcbb9b4006437d0b29828a/int-ml-4/Support%20Vector%20Machine).  
 
 ## Implementation
 ### Data Loading
